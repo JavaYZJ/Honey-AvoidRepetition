@@ -2,7 +2,7 @@
 这是一款小而巧的防重组件，旨在解决RPC接口的幂等性问题。当前版本仅支持了Dubbo，后续将迭代支持gRPC、Thrift等等。
 组件借助Dubbo的SPI机制，提高框架的扩展能力，以便支持开发者更多的防重/幂等性策略。组件目前仅内置了基于Redis的防重策略。
 
-> 组件不强依赖与Redis，组件仅直接依赖与你的防重策略实现上的依赖。
+> 组件不强依赖于Redis，组件仅直接依赖与你的防重策略实现上的依赖。
 
  - [x] starter开箱即用
  - [x] SPI机制，插件式高扩展能力
@@ -33,7 +33,7 @@ public class RpcDubboIdempotenceApplication {
 第三步：在你需要保证防重/幂等性的方法上打上注解AvoidRepetition，如果你的整个类的所有方法都需要保证防重/幂等性，可直接将注解打在类上。
 
 ```java
-	@AvoidRepetition
+    @AvoidRepetition
     public void test(String params) {
         log.info("I need to avoid repeat");
     }
